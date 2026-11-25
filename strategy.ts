@@ -187,7 +187,11 @@ export class DipRunner implements Bot {
   private firstBlockTime: number | null = null;
   private lastBlockTime: number | null = null;
 
-  constructor(private readonly cfg: Tuning = DEFAULT_TUNING) {}
+  private readonly cfg: Tuning;
+
+  constructor(cfg: Tuning = DEFAULT_TUNING) {
+    this.cfg = cfg;
+  }
 
   private tapeFor(mint: Pubkey): CurveTape {
     let tape = this.tapes.get(mint);
